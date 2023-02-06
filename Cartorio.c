@@ -128,53 +128,67 @@ int main ()
 {
 	int opcao = 0; //definindo as variaveis 
 	int laco = 1;
+	char senhadigitada[10]="a";
+	int comparacao;
 	
-			
-	for (laco = 1; laco = 1;)
+	setlocale(LC_ALL, "Portuguese");
+	printf ("### CARTÓRIO DA EBAC ###\n\n");
+	printf ("Login de administrador!\n\n Digite a senha de acesso: "); //solicitando login do usuario
+	scanf("%s",&senhadigitada); // solicitando senha do usuario
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if (comparacao == 0)
 	{
-	
-		system ("cls");
-			
-		setlocale(LC_ALL, "Portuguese"); // definindo a linguagem
-	
-		printf ("### CARTÓRIO DA EBAC ###\n\n"); // inicio do menu	
-		printf ("Escolha a opção desejada do menu:\n\n");
-		printf ("\t1 - REGISTRAR NOMES\n");
-		printf ("\t2 - CONSULTAR NOMES\n");
-		printf ("\t3 - DELETAR NOMES\n"); // fim do menu
-		printf ("\t4 - SAIR DO SISTEMA\n\n");
-	
-		printf ("Opção: ");
-		scanf("%d", &opcao); // lendo a opção do usuario
-	
-		system("cls"); //limpando a tela
 		
-		switch (opcao)
-		{
-			case 1:
-				registro();
-			break;
+		for (laco = 1; laco = 1;)
+		{	
+	
+			system ("cls");
 			
-			case 2:
-				consultar();
-			break;
-			
-			case 3:
-				deletar();
-			break;
-			
-			case 4:
-				printf ("OBRIGADO POR UTILIZAR O SISTEMA!\n");
-				return (0);
+			setlocale(LC_ALL, "Portuguese"); // definindo a linguagem
+	
+			printf ("### CARTÓRIO DA EBAC ###\n\n"); // inicio do menu	
+			printf ("Escolha a opção desejada do menu:\n\n");
+			printf ("\t1 - REGISTRAR NOMES\n"); //Comando que chama função registro
+			printf ("\t2 - CONSULTAR NOMES\n"); //Comando que chama função consultar
+			printf ("\t3 - DELETAR NOMES\n"); // Comando que chama função Deletar
+			printf ("\t4 - SAIR DO SISTEMA\n\n"); //Opção para o usuário encerrar o sistema.
+	
+			printf ("Opção: ");
+			scanf("%d", &opcao); // lendo a opção do usuario
+	
+			system("cls"); //limpando a tela
+		
+			switch (opcao)
+			{
+				case 1:
+					registro();
 				break;
-						
-			default:
-				printf ("\n\t### OPÇÃO INVALIDA ###\n\n");
-				system ("pause");
-			break;
-		}
 			
-}
+				case 2:
+					consultar();
+				break;
+			
+				case 3:
+					deletar();
+				break;
+			
+				case 4:
+					printf ("OBRIGADO POR UTILIZAR O SISTEMA!\n");
+					return (0);
+					break;
+						
+					default:
+					printf ("\n\t### OPÇÃO INVALIDA ###\n\n");
+					system ("pause");
+				break;
+			}
+		}
+	}
+	
+	else
+		printf ("SENHA INVÁLIDA! TENTE NOVAMENTE.\n\n");
+		
 	printf ("Esse SOFTWARE é de uso restrito\n");
 	printf("Desenvolvido por: Leonardo dos Santos de Oliveira\n"); 
 	printf ("ATENÇÃO: ESSE SOFTWARE ENCONTRA-SE EM DESENVOLVIMENTO!\n");
